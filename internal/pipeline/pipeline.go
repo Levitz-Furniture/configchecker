@@ -224,6 +224,31 @@ func (p *Pipeline) Run(ctx context.Context) (int64, error) {
 	return total, nil
 }
 
+// GetProcessedCount returns total ping-processed configs
+func (p *Pipeline) GetProcessedCount() int64 {
+	return atomic.LoadInt64(&p.stack1Processed)
+}
+
+// GetPingSuccess returns configs that passed ping test
+func (p *Pipeline) GetPingSuccess() int64 {
+	return atomic.LoadInt64(&p.stack1Success)
+}
+
+// GetPingFailed returns configs that failed ping test
+func (p *Pipeline) GetPingFailed() int64 {
+	return atomic.LoadInt64(&p.stack1Failed)
+}
+
+// GetSpeedSuccess returns configs that passed speed test
+func (p *Pipeline) GetSpeedSuccess() int64 {
+	return atomic.LoadInt64(&p.stack2Success)
+}
+
+// GetSpeedFailed returns configs that failed speed test
+func (p *Pipeline) GetSpeedFailed() int64 {
+	return atomic.LoadInt64(&p.stack2Failed)
+}
+
 // feedConfigs streams configs from file into stack1
 func (p *Pipeline) feedConfigs(ctx context.Context) {
 	defer close(p.stack1)
