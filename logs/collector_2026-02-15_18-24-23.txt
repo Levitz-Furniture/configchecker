@@ -1,0 +1,19 @@
+2026/02/15 18:24:23.040629 [INFO] ╔══════════════════════════════════════════════╗
+2026/02/15 18:24:23.040650 [INFO] ║     COLLECTOR: Merge Worker Results          ║
+2026/02/15 18:24:23.040654 [INFO] ╚══════════════════════════════════════════════╝
+2026/02/15 18:24:23.043243 [INFO]   → Collected 10228 healthy configs from worker_0
+2026/02/15 18:24:23.044913 [INFO]   → Collected 9328 healthy configs from worker_1
+2026/02/15 18:24:23.046433 [INFO]   → Collected 8206 healthy configs from worker_2
+2026/02/15 18:24:23.048100 [INFO]   → Collected 8537 healthy configs from worker_3
+2026/02/15 18:24:23.048119 [INFO] 
+2026/02/15 18:24:23.048125 [INFO] ╔══════════════════════════════════════════════╗
+2026/02/15 18:24:23.048130 [INFO] ║            MERGE SUMMARY                     ║
+2026/02/15 18:24:23.048135 [INFO] ╠══════════════════════════════════════════════╣
+2026/02/15 18:24:23.048140 [INFO] ║  Workers reported: 0                         ║
+2026/02/15 18:24:23.048145 [INFO] ║  Total processed:  0                         ║
+2026/02/15 18:24:23.048150 [INFO] ║  Total healthy:    36299                     ║
+2026/02/15 18:24:23.048155 [INFO] ║  Total failed:     0                         ║
+2026/02/15 18:24:23.048160 [INFO] ╚══════════════════════════════════════════════╝
+2026/02/15 18:24:23.053694 [INFO] After dedup: 36285 unique healthy configs
+2026/02/15 18:24:23.060137 [INFO] Output file size: 8.75 MB (within limits)
+2026/02/15 18:24:23.060305 [INFO] ✅ Merge complete: 36285 healthy configs → configs/GitHub_Actions_1000000020/worked.txt
