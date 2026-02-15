@@ -2,18 +2,6 @@ name: V2Ray Config Checker Pipeline
 
 on:
   workflow_dispatch:
-    inputs:
-      runner_size:
-        description: 'Runner size to use'
-        required: false
-        default: '16-cores'
-        type: choice
-        options:
-          - '4-cores'
-          - '8-cores'
-          - '16-cores'
-          - '32-cores'
-          - '64-cores'
   schedule:
     - cron: '0 */6 * * *' # Run every 6 hours
 
@@ -22,20 +10,8 @@ permissions:
 
 jobs:
   check-configs:
-    strategy:
-      fail-fast: false
-      matrix:
-        runner:
-          # ubuntu-latest-16-cores  # 16 vCPUs, 64 GB RAM — default powerhouse
-          # Uncomment below to run on multiple runners simultaneously:
-          # - ubuntu-latest-32-cores  # 32 vCPUs, 128 GB RAM
-          - ubuntu-latest-64-cores  # 64 vCPUs, 256 GB RAM
-
-    runs-on: ${{ github.event.inputs.runner_size && format('ubuntu-latest-{0}', github.event.inputs.runner_size) || matrix.runner }}
-    timeout-minutes: 180
-    concurrency:
-      group: configchecker-${{ matrix.runner }}
-      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
 
     steps:
       - name: Checkout Repository
